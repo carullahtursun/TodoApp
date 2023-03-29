@@ -2,10 +2,11 @@ import { useState, useContext, useEffect } from 'react'
 import { todoContext } from '../providers/TodoProvider'
 function Todos({ todo }) {
 
+    // useContext hook'u kullanarak todoContext'ten fonksiyonları alıyoruz
     const { removeTodo, toggleTodo, editItem } = useContext(todoContext);
 
 
-
+    // input değeri değiştiğinde tetiklenecek olan fonksiyon
     function handleInputChange(event) {
         const newTitle = event.target.value;
         editItem(todo.id, newTitle);
@@ -30,6 +31,7 @@ function Todos({ todo }) {
                     </div>
                 </div>
             </form>
+            {/* Todo sil butonu */}
             <button onClick={() => removeTodo(todo.id)} className='hover:text-rose-400 text-lg text-rose-300 mr-4'>x</button>
 
         </div>

@@ -5,19 +5,22 @@ import Todos from '../Components/Todos'
 import TodoProvider from '../providers/TodoProvider'
 import { todoContext } from '../providers/TodoProvider'
 function Todo() {
-
+  // useContext hook'u ile todoContext'i alıyoruz
   const { todoList, toggleTodo, removeTodo, clearComplatedTodo, getItems } = useContext(todoContext);
+
+  // State hook'u kullanarak filter'ı tutuyoruz
   const [filter, setFilter] = useState("all");
 
+  // getItems fonksiyonunu kullanarak, filtrelenmiş todo listesini alıyoruz
   const filteredTodos = getItems(filter)
 
 
   useEffect(() => {
-
+    // filter değiştiğinde yapılacak işlemler
   }, [filter])
   return (
     <>
-        <FormTodo />
+      <FormTodo />
       <div className=' overflow-scroll shadow  bg-white'>
         {
           filteredTodos.map(todo => (

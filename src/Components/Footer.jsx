@@ -3,7 +3,7 @@ import { todoContext } from '../providers/TodoProvider'
 
 function Footer({ setFilter, filteredTodos }) {
 
-
+    // todoContext'ten clearComplatedTodo ve complatedItems fonksiyonlarını ve değişkenini alıyoruz.
     const { clearComplatedTodo, complatedItems } = useContext(todoContext);
 
 
