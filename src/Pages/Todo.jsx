@@ -21,7 +21,7 @@ function Todo() {
   return (
     <>
       <FormTodo />
-      <div className=' overflow-scroll shadow  bg-white'>
+      <div className=' overflow-scroll max-h-[45vh] scrollbar-hide shadow  bg-white'>
         {
           filteredTodos.map(todo => (
             <Todos todo={todo} key={todo.id} />
