@@ -5,10 +5,6 @@ export const todoContext = createContext()
 const TodoProvider = (props) => {
 
     const [todoList, setTodoList] = useState([
-        { title: 'read a book', id: 0, isComplated: false },
-        { title: 'read a s', id: 1, isComplated: false },
-        { title: 'read a ook', id: 2, isComplated: true },
-        { title: 'read a ok', id: 3, isComplated: false },
 
     ])
 
@@ -16,7 +12,7 @@ const TodoProvider = (props) => {
     const getNumberOfTodoItem = todoList.length;
     const complatedItems = todoList.filter(todo => todo.isComplated === false).length;
 
-   
+
 
     const addTodo = (title) => {
         setTodoList([...todoList, { title, id: getNumberOfTodoItem, isComplated: false }])
@@ -37,18 +33,25 @@ const TodoProvider = (props) => {
         );
     };
 
-    const findItem = (id) => {
-        const item = todoList.find(list => list.id === id)
-        setEditItem(item)
-    }
+    const toggleAllTodo = () => {
+        const allCompleted = todoList.every(todo => todo.isComplated);
+        const updatedTodos = todoList.map(todo => {
+            return {
+                ...todo,
+                isComplated: !allCompleted
+            };
+        });
+        setTodoList(updatedTodos);
+    };
 
-    const editItem = (title, id) => {
-        setTodoList(
-            todoList.map((todo) =>
-                todo.id === id ? { ...todo, title: title } : todo
+    function editItem(id, title) {
+        setTodoList(prevList =>
+            prevList.map(todo =>
+                todo.id === id ? { ...todo, title } : todo
             )
         );
     }
+
 
     const getItems = (type) => {
         switch (type) {
@@ -68,7 +71,6 @@ const TodoProvider = (props) => {
         <todoContext.Provider value={{
             todoList,
             addTodo,
-            findItem,
             removeTodo,
             clearComplatedTodo,
             toggleTodo,
@@ -76,7 +78,9 @@ const TodoProvider = (props) => {
             editTask,
             getNumberOfTodoItem,
             complatedItems,
-            getItems
+            getItems,
+            toggleAllTodo
+
         }}
         >{props.children}
         </todoContext.Provider>

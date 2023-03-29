@@ -6,26 +6,28 @@ import TodoProvider from '../providers/TodoProvider'
 import { todoContext } from '../providers/TodoProvider'
 function Todo() {
 
-  const { todoList, toggleTodo, removeTodo, clearComplatedTodo ,getItems} = useContext(todoContext);
+  const { todoList, toggleTodo, removeTodo, clearComplatedTodo, getItems } = useContext(todoContext);
   const [filter, setFilter] = useState("all");
 
   const filteredTodos = getItems(filter)
 
- 
-  useEffect(()=>{
 
-  },[filter])
+  useEffect(() => {
+
+  }, [filter])
   return (
-    <div className=' w-1/3 rounded-lg shadow bg-white'>
-      <FormTodo />
-      {
-        filteredTodos.map(todo => (
-          <Todos todo={todo} key={todo.id} />
+    <>
+        <FormTodo />
+      <div className=' overflow-scroll shadow  bg-white'>
+        {
+          filteredTodos.map(todo => (
+            <Todos todo={todo} key={todo.id} />
 
-        ))
-      }
-      <Footer setFilter={setFilter} />
-    </div>
+          ))
+        }
+      </div>
+      <Footer setFilter={setFilter} filteredTodos={filteredTodos} />
+    </>
   )
 }
 
