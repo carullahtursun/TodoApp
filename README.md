@@ -6,7 +6,7 @@ This is a simple Todo app built with React, Tailwind, and Context API. It allows
 
 To get started with this app, simply clone this repository to your local machine and run npm install to install all the dependencies. Then run npm start to start the development server.
 ```git
-git clone https://github.com/your-username/todo-app.git
+git clone https://github.com/carullahtursun/TodoApp
 cd todo-app
 npm install
 npm start
