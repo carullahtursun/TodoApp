@@ -1,6 +1,7 @@
 # Todo App with React, Tailwind, and Context API
 
 This is a simple Todo app built with React, Tailwind, and Context API. It allows you to add, remove, edit, and mark as completed individual todo items. It also has a "Clear Completed" button that removes all completed items, and a "Toggle All" button that toggles the completed status of all items.
+![Opera Anlık Görüntü_2023-03-30_003422_127 0 0 1](https://user-images.githubusercontent.com/62027425/228677352-ff3d98ef-c6a5-4db7-a5b2-55cfdcd26b49.png)
 
 ## Getting Started
 
