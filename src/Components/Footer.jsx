@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react'
 import { todoContext } from '../providers/TodoProvider'
 
-function Footer({ setFilter, filteredTodos }) {
+function Footer({ setFilter,filter, filteredTodos }) {
 
     // todoContext'ten clearComplatedTodo ve complatedItems fonksiyonlarını ve değişkenini alıyoruz.
     const { clearComplatedTodo, complatedItems } = useContext(todoContext);
@@ -14,13 +14,13 @@ function Footer({ setFilter, filteredTodos }) {
             </p>
             <div>
                 <div className="inline-flex rounded-md  m-1" role="group">
-                    <button onClick={() => setFilter('all')} type="button" className="p-1 text-sm font-medium text-gray-500 bg-white rounded-l-lg">
+                    <button onClick={() => setFilter('all')} type="button" className={`${filter == "all" ? ' border rounded-md px-3  border-gray-500  p-1 text-sm font-medium text-gray-500 ' :'p-1 text-sm font-medium text-gray-500 '} `}>
                         All
                     </button>
-                    <button onClick={() => setFilter('active')} type="button" className="p-1 text-sm font-medium text-gray-500  bg-white ">
+                    <button onClick={() => setFilter('active')} type="button" className={`${filter == "active" ? ' border rounded-md px-3 border-gray-500  p-1 text-sm font-medium text-gray-500 ' :'p-1 text-sm font-medium text-gray-500 '} `}>
                         Active
                     </button>
-                    <button onClick={() => setFilter('completed')} type="button" className="p-1 text-sm font-medium text-gray-500  bg-white  rounded-r-md ">
+                    <button onClick={() => setFilter('completed')} type="button" className={`${filter == "completed" ? ' border rounded-md px-3 border-gray-500  p-1 text-sm font-medium text-gray-500 ' :'p-1 text-sm font-medium text-gray-500 '} `}>
                         Complated
                     </button>
                 </div>

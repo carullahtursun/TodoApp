@@ -29,7 +29,7 @@ function Todo() {
           ))
         }
       </div>
-      <Footer setFilter={setFilter} filteredTodos={filteredTodos} />
+      <Footer setFilter={setFilter} filter={filter} filteredTodos={filteredTodos} />
     </>
   )
 }
