@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react'
-import { AiOutlineCheck } from 'react-icons/Ai';
+
 import { todoContext } from '../providers/TodoProvider'
 function FormTodo() {
     // todoContext'ten gerekli fonksiyonları ve state'i alıyoruz
@@ -25,8 +25,8 @@ function FormTodo() {
             <div className=' rounded-t-xl sticky top-0 bg-white flex flex-row border p-2 justify-center items-center  shadow '>
                 {/* toggleAllTodo fonksiyonunu tetikleyen checkbox */}
                 <input onClick={toggleAllTodo} type="checkbox" id="flowbite-option" value="" className="hidden peer" />
-                <label htmlFor="flowbite-option" className="inline-flex items-center justify-center ml-1 h-7 w-7 text-gray-500 bg-white  border-gray-200 rounded-lg cursor-pointer  peer-checked:text-rose-500">
-                    <AiOutlineCheck className='text-2xl' />
+                <label htmlFor="flowbite-option" className="inline-flex items-center justify-center text-lg ml-1 h-7 w-7 text-gray-500 bg-white  border-gray-200 rounded-lg cursor-pointer  peer-checked:text-rose-500">
+                    X
                 </label>
 
                 <form onSubmit={handleSubmit} className=' flex flex-row w-full justify-start'>

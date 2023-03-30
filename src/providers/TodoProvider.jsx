@@ -8,11 +8,25 @@ const TodoProvider = (props) => {
 
     // todoList, setTodoList fonksiyonu ile birlikte useState() hook'u ile tanımlandı ve öntanımlı olarak boş bir array olarak atandı.
     const [todoList, setTodoList] = useState([
-
+        {
+            title:'Ödev Yapmak',
+            isComplated:false,
+            id:1,
+        },
+        {
+            title:'Kitap Okumak',
+            isComplated:true,
+            id:2,
+        },
+        {
+            title:'Sinemaya Gitmek',
+            isComplated:false,
+            id:3,
+        }
     ])
 
     // getNumberOfTodoItem, todoList array'inin uzunluğunu döndürür ve toplam todo sayısını elde etmek için kullanılır.
-    const getNumberOfTodoItem = todoList.length;
+    const getNumberOfTodoItem = todoList.length+1;
     // complatedItems, todoList array'indeki tamamlanmış todoları filtreleyerek elde edilen array'in uzunluğunu döndürür ve tamamlanmamış todo sayısını elde etmek için kullanılır.
     const complatedItems = todoList.filter(todo => todo.isComplated === false).length;
 
